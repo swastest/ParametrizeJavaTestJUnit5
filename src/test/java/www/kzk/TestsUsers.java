@@ -15,7 +15,7 @@ import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.open;
 
-@DisplayName("Class with Simples Tests")  // Подписывать тесты, понятное отображение
+@DisplayName("Class with Simples Tests")  // Подписывать тесты, понятное отображение  НО у меня это не сработало !!??
 public class TestsUsers {
 
     @BeforeAll
@@ -36,8 +36,8 @@ public class TestsUsers {
     // @Disabled(" Причина дизейбла, ссылаясь на баг-репорт")
 @DisplayName("Simple Test Form with Value Source")
     @ParameterizedTest (name = "Проба пера ValueSource")
-    void  Test1 (String TestData) {
-        String firstName = (TestData);
+    void  Test1 (String testData) {
+        String firstName = (testData);
         String lastName = "Karapetyan";
         String email = "romashka@mail.ru";
         String tel = "8800200060";
@@ -47,7 +47,7 @@ public class TestsUsers {
         String currentAddress = "Eto to4no Java?";
         String state = "Uttar Pradesh";
         String city = "Merrut";
-        // String dataBirth
+
 
         open("/automation-practice-form");
         $("#firstName").setValue(firstName);
@@ -66,8 +66,6 @@ public class TestsUsers {
         $("#react-select-3-input").setValue(state).pressEnter();
         $("#react-select-4-input").setValue(city).pressEnter();
         $("input#uploadPicture").uploadFromClasspath("123");
-        //  $("#uploadPicture").uploadFromClasspath(imgPath);  альтернатива,
-        //  задать переменную String imgPath = "img/Pushkin.jpg";
         $("#submit").click();
 
         $("#example-modal-sizes-title-lg").shouldHave(text("Thanks for submitting the form"));
@@ -84,7 +82,7 @@ public class TestsUsers {
                 text (currentAddress),
                 text (state+" "+city)
         );
-        //   $("#closeLargeModal").click();
+
 
     }
 
@@ -102,10 +100,10 @@ delimiter = '|')  // - если в тестовх данных где то ес�
 
 
     @ParameterizedTest (name = "Csv Source")
-    void  TestWithCsvSours (String TestDataName, String TestDataLastN, String TestDataMail) {
-        String firstName = (TestDataName);
-        String lastName = (TestDataLastN);
-        String email = (TestDataMail);
+    void  TestWithCsvSours (String testDataName, String testDataLastN, String testDataMail) {
+        String firstName = (testDataName);
+        String lastName = (testDataLastN);
+        String email = (testDataMail);
         String tel = "8800200060";
         String subjectsInput = "Hindi";
         String gender = "Male";
@@ -113,7 +111,7 @@ delimiter = '|')  // - если в тестовх данных где то ес�
         String currentAddress = "Eto to4no Java?";
         String state = "Uttar Pradesh";
         String city = "Merrut";
-        // String dataBirth
+
 
         open("/automation-practice-form");
         $("#firstName").setValue(firstName);
@@ -132,8 +130,6 @@ delimiter = '|')  // - если в тестовх данных где то ес�
         $("#react-select-3-input").setValue(state).pressEnter();
         $("#react-select-4-input").setValue(city).pressEnter();
         $("input#uploadPicture").uploadFromClasspath("123");
-        //  $("#uploadPicture").uploadFromClasspath(imgPath);  альтернатива,
-        //  задать переменную String imgPath = "img/Pushkin.jpg";
         $("#submit").click();
 
         $("#example-modal-sizes-title-lg").shouldHave(text("Thanks for submitting the form"));
@@ -150,9 +146,8 @@ delimiter = '|')  // - если в тестовх данных где то ес�
                 text (currentAddress),
                 text (state+" "+city)
         );
-        //   $("#closeLargeModal").click();
-
     }
+
 
 
 }
